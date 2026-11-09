@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anirban Ahamed | Civil Engineering Portfolio</title>
+    
+    <!-- Google Fonts for Industrial & Clean Look -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables - Light Theme (Default) */
+        :root {
+            --blueprint-bg: #153243;
+            --blueprint-grid: rgba(255, 255, 255, 0.15);
+            --concrete-light: rgba(172, 206, 224, 0.638);
+            --concrete-dark: #828a92;
+            --steel-dark: #283643;
+            --steel-text: #495057;
+            --safety-orange: #f26419;
+            --safety-yellow: #f6ae2d;
+            --section-bg: #ffffff;
+            --card-bg: #e9ecef;
+            --meta-text: #6c757d;
+            --shadow-solid: 4px 4px 0px rgba(40, 54, 67, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* CSS Variables - Dark Theme */
+        [data-theme="dark"] {
+            --blueprint-bg: #09131a;
+            --blueprint-grid: rgba(255, 255, 255, 0.05);
+            --concrete-light: #121212;
+            --concrete-dark: #2d3748;
+            --steel-dark: #e2e8f0;
+            --steel-text: #a0aec0;
+            --safety-orange: #f26419;
+            --safety-yellow: #f6ae2d;
+            --section-bg: #1a202c;
+            --card-bg: #2d3748;
+            --meta-text: #718096;
+            --shadow-solid: 4px 4px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Smooth Scrolling for the Document */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px; /* Offset height of sticky navbar */
+        }
+
+        /* Sticky Navbar Styling */
+        .navbar {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: var(--blueprint-bg);
+            border-bottom: 3px solid var(--safety-orange);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            transition: background-color var(--transition);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 25px;
+        }
+
+        .nav-brand {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-link {
+            font-family: 'Oswald', sans-serif;
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            padding: 8px 14px;
+            border-radius: 4px;
+            position: relative;
+            transition: var(--transition);
+            display: block;
+        }
+
+        /* Hover Effect */
+        .nav-link:hover {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Active Link State */
+        .nav-link.active {
+            color: #ffffff;
+            background-color: var(--safety-orange);
+            box-shadow: 0 2px 6px rgba(242, 100, 25, 0.4);
+            font-weight: bold;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--safety-yellow);
+        }
+
+        /* Mobile Toggle Hamburger Button */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 12px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO */
+
+.nav-logo {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.nav-logo span {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--safety-orange);
+}
+
+.nav-logo small {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-top: 4px;
+}
+
+        /* Responsive Mobile Navigation */
+        @media (max-width: 868px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--blueprint-bg);
+                flex-direction: column;
+                gap: 0;
+                border-bottom: 4px solid var(--safety-orange);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
+            }
+
+            .nav-menu.is-active {
+                max-height: 400px;
+            }
+
+            .nav-item {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-link {
+                padding: 12px;
+                border-radius: 0;
+            }
+
+            .nav-link.active::after {
+                display: none;
+            }
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--concrete-light);
+            color: var(--steel-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color var(--transition), color var(--transition);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: var(--safety-orange);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(15deg);
+            background: var(--safety-yellow);
+            color: #000;
+        }
+
+        /* Blueprint Header */
+        header {
+            background-color: var(--blueprint-bg);
+            background-image: 
+                linear-gradient(var(--blueprint-grid) 1px, transparent 1px),
+                linear-gradient(90deg, var(--blueprint-grid) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: #ffffff;
+            padding: 80px 20px 80px;
+            text-align: center;
+            position: relative;
+            border-bottom: 8px solid var(--safety-orange);
+            transition: background-color var(--transition);
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--safety-orange),
+                var(--safety-orange) 10px,
+                var(--safety-yellow) 10px,
+                var(--safety-yellow) 20px
+            );
+        }
+
+        /* Profile Image Styling */
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--safety-orange);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+            background-color: var(--steel-dark);
+            transition: transform var(--transition);
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
+        }
+
+        header h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            transition: transform 0.5s ease, text-shadow 0.5s ease;
+        }
+
+        header h1:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #e0e0e0;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .contact-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 1rem;
+        }
+
+        .contact-bar a, .contact-bar span {
+            color: #ffffff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px 20px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-bar a:hover, .contact-bar span:hover {
+            background: var(--safety-orange);
+            border-color: var(--safety-orange);
+            transform: translateY(-3px);
+        }
+
+        /* Layout Structure */
+        .container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styling - Industrial Look */
+        section {
+            background: var(--section-bg);
+            padding: 40px;
+            margin-bottom: 40px;
+            border: 1px solid var(--concrete-dark);
+            border-top: 4px solid var(--steel-dark);
+            box-shadow: var(--shadow-solid);
+            position: relative;
+            transition: background-color var(--transition), border-color var(--transition);
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--concrete-dark);
+            box-shadow: 
+                calc(100% - 28px) 0 0 var(--concrete-dark), 
+                0 calc(100% - 28px) 0 var(--concrete-dark), 
+                calc(100% - 28px) calc(100% - 28px) 0 var(--concrete-dark);
+            transition: background var(--transition), box-shadow var(--transition);
+        }
+
+        h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            color: var(--steel-dark);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid var(--concrete-dark);
+            padding-bottom: 10px;
+            transition: color var(--transition), border-color var(--transition);
+        }
+
+        h2 i {
+            color: var(--safety-orange);
+        }
+    .figcaption{        padding-top: 30px;
+    margin-top:40px;
+    font-size: 14px;
+    font-style: italic;     /* Makes the text italic */
+    font-weight: 500;       /* Medium weight for better readability */
+    color:  #a4a4a4;            /* Softer dark gray instead of harsh black */
+    letter-spacing: 0.5px;  /* Adds a clean, modern spacing between letters */
+}
+.p{
+     margin-top: 16px;       /* Clear space between picture and text */
+    padding-top: 4px;       
+    text-align: center;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    color: #a4a4a4;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+}
+.photo-gallery figcaption, 
+.certificate figcaption, 
+.intern figcaption {
+    margin-top: 16px;       /* Clear space between picture and text */
+    padding-top: 4px;       
+    text-align: center;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 500;
+    color: #a4a4a4;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+}
+    
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* Cards inside sections */
+        .item-card {
+            background: var(--card-bg);
+            border-left: 5px solid var(--safety-orange);
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+         
+        .item-card:hover {
+            transform: translateX(5px);
+            box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .item-card:hover .res {
+            color: whitesmoke;
+            font-weight: bold;
+        }
+
+        .item-card h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            color: var(--steel-dark);
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+            transition: color var(--transition);
+        }
+
+        .item-card .subtitle {
+            font-weight: 500;
+            color: var(--safety-orange);
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .item-card .meta {
+            font-size: 0.9rem;
+            color: var(--meta-text);
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-weight: 500;
+        }
+        
+        .item-card .meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .item-card ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .item-card li {
+            margin-bottom: 8px;
+        }
+
+        /* Skills badges */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .skill-badge {
+            background: var(--steel-dark);
+            color: var(--section-bg);
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 3px solid rgba(0,0,0,0.3);
+            transition: var(--transition);
+        }
+
+        /* Distinct Hover Effects */
+        .competency-badge:hover, .tech:hover {
+            transform: translateY(-3px) scale(1.05) !important;
+            background-color: var(--safety-orange) !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .language-badge:hover {
+            transform: translateY(-3px) !important;
+            background-color: rgb(132, 132, 132) !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }        
+
+        /* Photo Gallery Styles */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 15px;
+            width: 100%;
+            margin-top: 15px;
+            align-items: start;
+        }
+
+        .photo-item {
+            margin: 0;
+            flex: 1;
+            min-width: 140px;
+            max-width: calc(50% - 10px);
+        }
+       
+        .portfolio-img {
+            width: 100%;
+            height: 350px;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            background: #f8fafc;
+            transition: var(--transition);
+        }
+
+        .portfolio-img:hover {
+            transform: scale(1.05);
+            border-color: var(--safety-orange);
+        }
+
+        .certificate img {
+            width: 100%;
+            height: 80%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            background: transparent;
+            border-radius: 5px;
+        }
+
+       .intern {
+    width: 100%;
+    height: 100%; /* Or auto if height should scale naturally */
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    background: transparent;
+    border-radius: 0px;
+}
+        .certificate figcaption {
+            font-size: 12px;
+            margin-top: 10px;
+            line-height: 2.5;
+            color: #cbd5e1;
+        }
+
+        .photo-item {
+            width: 75%;
+            height: 25%;
+            object-position: center;
+
+            background: transparent;
+    
+        }
+
+        /* Responsive layout for small screens */
+        @media (max-width: 500px) {
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        footer {
+            background: #111827;
+            color: #9ca3af;
+            text-align: center;
+            padding: 30px;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+            border-top: 5px solid var(--safety-orange);
+        }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 2.5rem;
+            }
+            section {
+                padding: 25px;
+            }
+            
+        }
+
+        /* CONTACT SECTION */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-info {
+            padding: 20px 10px;
+        }
+
+        .contact-tag {
+            display: inline-block;
+            background: var(--safety-orange);
+            color: white;
+            padding: 6px 14px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 2rem;
+            color: var(--steel-dark);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .contact-info > p {
+            line-height: 1.8;
+            margin-bottom: 30px;
+            color: var(--steel-text);
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            padding: 15px;
+            background: var(--card-bg);
+            border-left: 4px solid var(--safety-orange);
+            transition: var(--transition);
+        }
+
+        .contact-detail:hover {
+            transform: translateX(6px);
+        }
+
+        .contact-detail > i {
+            font-size: 1.5rem;
+            color: var(--safety-orange);
+        }
+
+        .contact-detail h4 {
+            font-family: 'Oswald', sans-serif;
+            color: var(--steel-dark);
+            letter-spacing: 1px;
+        }
+
+        .contact-detail p {
+            font-size: 0.9rem;
+            color: var(--meta-text);
+        }
+
+        .contact-decoration {
+            margin-top: 35px;
+            padding: 20px;
+            border: 1px dashed var(--safety-orange);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--safety-orange);
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+      
+
+        .contact-decoration i {
+            font-size: 1.7rem;
+        }
+
+        .contact-form-container {
+            background: var(--card-bg);
+            padding: 30px;
+            border: 1px solid var(--concrete-dark);
+            border-top: 5px solid var(--safety-orange);
+            box-shadow: var(--shadow-solid);
+        }
+
+        .contact-form-container h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.5rem;
+            color: var(--steel-dark);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--concrete-dark);
+        }
+
+        .contact-form-container h3 i {
+            color: var(--safety-orange);
+            margin-right: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            color: var(--steel-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 15px;
+            background: var(--section-bg);
+            color: var(--steel-text);
+            border: 1px solid var(--concrete-dark);
+            border-radius: 3px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--safety-orange);
+            box-shadow: 0 0 0 3px rgba(242, 100, 25, 0.12);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--meta-text);
+        }
+
+        .send-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--safety-orange);
+            color: white;
+            border: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            transition: var(--transition);
+        }
+
+        .send-btn:hover {
+            background: var(--safety-yellow);
+            color: #111;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+        }
+
+        .send-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .send-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 850px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .contact-info h3 {
+                font-size: 1.6rem;
+            }
+
+            .contact-form-container {
+                padding: 20px;
+            }
+
+            .contact-decoration {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+   <!-- Navigation Bar -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <!-- Logo -->
+        <a href="#home" class="nav-logo">
+            <span>AA.</span>
+            <small>PORTFOLIO</small>
+        </a>
+
+        
+        <!-- Mobile Hamburger Toggle -->
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Navigation Links without hardcoded active class on home -->
+        <ul class="nav-menu" id="navMenu">
+            <li class="nav-item">
+                <a href="#home" class="nav-link">HOME</a>
+            </li>
+            <li class="nav-item">
+                <a href="#about" class="nav-link">ABOUT</a>
+            </li>
+           
+             <li class="nav-item">
+                <a href="#experience" class="nav-link">EXPERIENCE</a>
+            </li>
+             <li class="nav-item">
+                <a href="#research" class="nav-link">RESEARCH & PUBLICATION</a>
+            </li>
+            <li class="nav-item">
+                <a href="#site" class="nav-link">SITE VISITS</a>
+            </li>
+            <li class="nav-item">
+                <a href="#lead" class="nav-link">LEADERSHIP & CO-ORDINATION</a>
+            </li>
+            <li class="nav-item">
+                <a href="#education" class="nav-link">EDUCATION</a>
+            </li>
+            
+            <li class="nav-item">
+                <a href="#projects" class="nav-link">PROJECTS</a>
+            </li>
+            <li class="nav-item">
+                <a href="#skills" class="nav-link">SKILLS</a>
+            </li>
+           
+            <li class="nav-item">
+                <a href="#contact" class="nav-link">LET'S CONNECT</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+    <!-- Dark/Light Mode Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Hero / Blueprint Header -->
+    <header id="home">
+        <img src="c:\Users\MANTASHA\Desktop\MY CODES\HTML\Screenshot 2026-10-04 224438.png" alt="Anirban Ahamed" class="profile-img">
+        <h1>Anirban Ahamed</h1>
+        <p>Civil Engineering Undergraduate & Structural Engineering Enthusiast</p>
+        <div class="contact-bar">
+            <a href="tel:+919123980774"><i class="fas fa-phone-alt"></i> +91 9123980774</a>
+            <a href="mailto:anirbanahamed@gmail.com"><i class="fas fa-envelope"></i> anirbanahamed@gmail.com</a>
+              <a href="https://www.linkedin.com/in/anirban-ahamed-99671428b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <span><i class="fas fa-map-marker-alt"></i> Newtown, Kolkata - 700135</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Executive Summary -->
+        <section class="reveal" id="about">
+            <h2><i class="fas fa-hard-hat"></i> Executive Profile</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                Motivated Civil Engineering undergraduate student with a strong interest in structural design and construction practices. Possess sound theoretical knowledge of RCC design, building materials, and basic geotechnical engineering concepts. Familiar with engineering drawings and academic project documentation. Eager to apply technical skills, learn industry-standard practices, and contribute effectively to civil engineering projects while continuously developing professional competence.
+            </p>
+        </section>
+
+        <!-- Internships -->
+        <section class="reveal" id="experience">
+            <h2><i class="fas fa-hammer"></i> Field & Structural Experience</h2>
+            
+            <div class="item-card">
+                <h3>Summer Intern</h3>
+                <div class="subtitle">Rural Connectivity Training & Research Center</div>
+                <div class="meta">
+                    <span><i class="far fa-calendar-alt"></i> 1 June 2026 – 18 July 2026</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Kalyani, West Bengal</span>
+                </div>
+               <div class="photo-gallery">
+
+    <figure class="certificate">
+        <img src="kalyani certificate.jpeg"
+             alt="PMGSY Training Completion Certificate"
+             class="portfolio-img">
+
+        <figcaption>
+            PMGSY Training Completion Certificate
+        </figcaption>
+    </figure>
+
+    <figure class="intern">
+        <img src="c:\Users\MANTASHA\Desktop\MY CODES\HTML\kalyani internship 2.jpg"
+             alt="Training completion and field contribution"
+             class="portfolio-img">
+
+        <figcaption>
+            Acknowledged for Successful Completion and Field Contribution
+        </figcaption>
+    </figure>
+
+</div>
+
+<ul>
+    <li>Inspected PMGSY rural road construction works, including GSB, WBM, WMM, MSS, camber, super elevation, and pavement layer thickness.</li>
+    <li>Conducted/observed soil, concrete, aggregate, and bitumen quality-control tests, including CBR, compaction, slump, compressive strength, Marshall, penetration, and ductility tests.</li>
+    <li>Assisted in road quantity estimation and rate analysis using PWD SOR, and performed GPS waypoint mapping and site boundary analysis using Google Earth.</li>
+</ul>
+</div>
+
+            <div class="item-card">
+                <h3>Site Engineering Intern</h3>
+                <div class="subtitle">Bengal Shapoorji Housing Development Pvt. Ltd. (Shapoorji Pallonji Real Estate)</div>
+                <div class="meta">
+                    <span><i class="far fa-calendar-alt"></i> 12 January 2026 – 13 February 2026</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Newtown, Kolkata</span>
+                </div>
+                <div class="photo-gallery">
+                    <figure class="certificate img">
+                        <img src=" c:\Users\MANTASHA\Downloads\WhatsApp Image 2026-10-07 at 1.05.38 PM (1).jpeg" class="portfolio-img">
+                        <figcaption>Certificate of Merit & Internship Credential</figcaption>
+                    </figure>
+                    <figure class="intern">
+                        <img src="c:\Users\MANTASHA\Desktop\MY CODES\HTML\WhatsApp Image 2026-10-02 at 9.36.36 PM (2).jpeg" alt="Site Supervision" class="portfolio-img">
+                        <figcaption>Site Supervision at Newtown Mass Housing Project</figcaption>
+                    </figure>
+                </div>
+                <ul>
+                    <li>Assisted in construction of G+14 and G+4 residential structures, gaining practical exposure to pile foundations, shallow foundations, and RCC structural systems.</li>
+                    <li>Worked with advanced construction technologies like Mivan formwork and Self Compacting Concrete (SCC), ensuring efficient, high-quality, and fast-track construction processes.</li>
+                    <li>Gained hands-on experience in site execution and quality control at a large-scale mass housing project, including supervision of earthwork, foundation, reinforcement, and concreting activities.</li>
+                </ul>
+            </div>
+
+            <div class="item-card">
+                <h3>Structural Engineering Intern</h3>
+                <div class="subtitle">Jalpaiguri Government Engineering College</div>
+                <div class="meta">
+                    <span><i class="far fa-calendar-alt"></i> 10 June 2025 – 21 July 2025</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Jalpaiguri, West Bengal</span>
+                </div>
+                 <div class="photo-gallery">
+                    <figure class="certificate img">
+                        <img src="c:\Users\MANTASHA\Desktop\MY CODES\HTML\jalpaiguri certificate.jpeg" alt="Mivan Formwork" class="portfolio-img">
+                        <figcaption>Structural Design Internship Certificate</figcaption>
+                    </figure>
+                    <figure class="intern">
+                        <img src="c:\Users\MANTASHA\Desktop\MY CODES\HTML\jalpaiguri.jpeg" alt="Site Supervision" class="portfolio-img">
+                        <figcaption>Completion Recognition</figcaption>
+                    </figure>
+                </div>
+                
+                <ul>
+                    <li>Analysed and designed a G+3 RCC office building using the Limit State Method, strictly adhering to IS 456 and IS 875 codes for structural safety and serviceability.</li>
+                    <li>Designed key structural components including slabs, beams, columns, and isolated footings with detailed load calculations (dead load and live load).</li>
+                    <li>Conducted moment distribution method, prepared BMD, SFD, and verified structural safety through hand calculations supported by MS Excel.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Research & Publications Section -->
+        
+             <section class="reveal" id="research">
+            <h2><i class="fas fa-book-open"></i> Research & Publications</h2>
+            <div class="item-card">
+                <h3>Abstract Accepted at Seminar</h3>
+                <div class="subtitle">Research & Academic Achievement</div>
+
+                <div class="meta">
+                    <span><i class="fas fa-check-circle"></i> Abstract Accepted | IIT Kharagpur | 2026</span>
+                    <span><i class="far fa-calendar-alt"></i> 2026</span>
+                </div>
+
+                <p>
+                    My research abstract titled <strong><span class="res item-card:hover"> An attempt to analyze the occurrence pattern of particulate matter (PM10 & PM2.5) in the sensitive mountain eco system of Darjeeling (Queen of the Hills) of West Bengal, India</span></strong>
+                    has been accepted at <strong><span class="res">3-Day international conference on Science for the Sustainable Earth</span></strong>,
+                    organized by <strong><span class="res">Indian Institute of Technology, Kharagpur</span></strong>.
+                    This achievement reflects my interest in research, academic exploration,
+                    and contributing to knowledge in my field.
+                </p>
+            </div>
+        </section>
+
+        <!-- Site Visit Photographs Gallery Section -->
+        <section class="reveal" id="site">
+            <h2><i class="fas fa-images"></i> Site Visit Photographs</h2>
+            <div class="item-card">
+                <h3>Field Work & Quality Control Execution</h3>
+                <div class="photo-gallery">
+                    <figure class="intern">
+                        <img src="c:\Users\MANTASHA\Desktop\MY CODES\HTML\WhatsApp Image 2026-10-02 at 9.36.34 PM (1).jpeg" alt="PMGSY Road Inspection" class="portfolio-img">
+                        <figcaption>PMGSY Road Inspection at Barasat</figcaption>
+                    </figure>
+                    <figure class="intern">
+                        <img src="c:\Users\MANTASHA\Desktop\MY CODES\HTML\WhatsApp Image 2026-10-02 at 9.36.35 PM (1).jpeg" alt="Mivan Formwork" class="portfolio-img">
+                        <figcaption>Mivan Formwork at Newtown Project</figcaption>
+                    </figure>
+                    <figure class="intern">
+                        <img src="c:\Users\MANTASHA\Desktop\MY CODES\HTML\WhatsApp Image 2026-10-02 at 9.36.35 PM.jpeg" alt="Concrete Pouring" class="portfolio-img">
+                        <figcaption>Concrete Pouring Supervision</figcaption>
+                    </figure>
+                    <figure class="intern">
+                        <img src="c:\Users\MANTASHA\Desktop\MY CODES\HTML\WhatsApp Image 2026-11-05 at 4.41.08 PM.jpeg" alt="Reinforcement Check" class="portfolio-img">
+                        <figcaption>Reinforcement Inspection</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership & Coordination Gallery Section -->
+        <section class="reveal" id="lead">
+            <h2><i class="fas fa-users-cog"></i> Leadership & Coordination</h2>
+            <div class="item-card">
+                <h3>Events & Academic Management</h3>
+                <div class="subtitle">Bridging collaboration, managing operations, and ensuring seamless execution across institutional events.</div>
+                <div class="photo-gallery">
+                    <figure class="intern">
+                        <img src="c:\Users\MANTASHA\Downloads\WhatsApp Image 2026-09-28 at 11.45.17 PM (2).jpeg" alt="Placement Drive" class="portfolio-img">
+                        <figcaption>Student Co-ordinator of Water Day Seminar at Aliah University </figcaption>
+                    </figure>
+                    <figure class="intern">
+                        <img src="c:\Users\MANTASHA\Desktop\MY CODES\HTML\aura visit.jpeg" alt="Induction Program" class="portfolio-img">
+                        <figcaption>Student Management Head of AURA Tech-fest at Aliah University</figcaption>
+                    </figure>
+                    <figure class="intern">
+                        <img src="c:\Users\MANTASHA\Desktop\MY CODES\HTML\WhatsApp Image 2026-10-25 at 2.44.22 PM.jpeg" alt="Conference Management" class="portfolio-img">
+                        <figcaption>Volunteer of National Conference on Future Chellanges for Sustainable Development in Geotechnical Engineering</figcaption>
+                    </figure>
+                     <figure class="intern">
+                        <img src="c:\Users\MANTASHA\Desktop\MY CODES\HTML\_MG_5713.JPG" alt="Conference Management" class="portfolio-img">
+                        <figcaption>Student In-Charge at Engineering Student Induction Program, Aliah University</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <div class="grid-2">
+            <!-- Leadership Roles -->
+            <section class="reveal">
+                <h2><i class="fas fa-users"></i> Roles & Management</h2>
+                
+                <div class="item-card">
+                    <h3>Placement Coordinator</h3>
+                    <div class="subtitle">Aliah University</div>
+                    <p>Spearheading campus placement drives, bridging communication between corporate recruiters and university graduates to ensure successful placement logistics.</p>
+                </div>
+                
+                <div class="item-card">
+                    <h3>Student In-Charge</h3>
+                    <div class="subtitle">Engineering Student Induction Program, Aliah University</div>
+                    <p>Led student organization, stage management, and execution for the smooth onboarding and scheduling of the university-wide induction program.</p>
+                </div>
+                
+                <div class="item-card">
+                    <h3>IIC Student Volunteer</h3>
+                    <div class="subtitle">Aliah University</div>
+                    <p>Actively volunteered for the Institution's Innovation Council (IIC), organizing and participating in various academic and technical events to foster innovation on campus.</p>
+                </div>
+
+                <div class="item-card">
+                    <h3>Conference Management</h3>
+                    <div class="subtitle">Aliah University</div>
+                    <p>Successfully managed operations, logistics, and event planning for multiple national and international academic conferences hosted at the university.</p>
+                </div>
+            </section>
+
+            <!-- Education Structure -->
+            <section class="reveal" id="education">
+                <h2><i class="fas fa-graduation-cap"></i> Academic Structure</h2>
+                <div class="item-card">
+                    <h3>B.Tech in Civil Engineering</h3>
+                    <div class="subtitle">Aliah University</div>
+                    <div class="meta">
+                        <span>Pursuing</span> | <span>CGPA: 7.06 (Up to 5th Sem)</span>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <h3>Class 12 (Higher Secondary)</h3>
+                    <div class="subtitle">Bidhannagar Municipal School</div>
+                    <div class="meta">
+                        <span>WBCHSE (2023)</span> | <span>79.4%</span>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <h3>Class 10 (Secondary)</h3>
+                    <div class="subtitle">Bidhannagar Municipal School</div>
+                    <div class="meta">
+                        <span>WBBSE (2021)</span> | <span>72.0%</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Projects -->
+        <section class="reveal" id="projects">
+            <h2><i class="fas fa-project-diagram"></i> Technical Projects</h2>
+            <div class="grid-2">
+                <div class="item-card">
+                    <h3>M40 Concrete Design Mix Project</h3>
+                    <p>Currently executing laboratory preparations for an M40 Concrete Design Mix with a team, aiming to achieve specific compressive strength properties strictly following IS Code provisions.</p>
+                </div>
+                <div class="item-card">
+                    <h3>Sustainable M35 Concrete Design Mix</h3>
+                    <p>Developing a sustainable M35 concrete design mix tailored for road construction applications, blending IS Code compliance with practical execution and material sustainability.</p>
+                </div>
+                <div class="item-card" style="grid-column: span 2;">
+                    <h3>Technical Presentation</h3>
+                    <div class="subtitle">"Various Types of Tests on Bitumen"</div>
+                    <p>Presented in-depth technical insights and methodologies for bitumen testing under the academic curriculum of Transportation Engineering.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Toolkit (Skills) -->
+        <section class="reveal" id="skills">
+            <h2><i class="fas fa-toolbox"></i> Engineering Toolkit</h2>
+            <div class="grid-2">
+                <div>
+                    <h3 style="font-family: 'Oswald', sans-serif; margin-bottom: 15px; color: var(--steel-dark);">Technical Proficiencies</h3>
+                    <div class="skills-container">
+                        <span class="skill-badge tech">Staad Pro</span>
+                        <span class="skill-badge tech">AutoCAD (Basics)</span>
+                        <span class="skill-badge tech">MATLAB (ANN Model)</span>
+                        <span class="skill-badge tech">C / C++</span>
+                        <span class="skill-badge tech">MS Excel & Office</span>
+                        <span class="skill-badge tech">Canva</span>
+                    </div>
+                </div>
+                <div>
+                    <!-- Core Competencies -->
+                    <h3 style="font-family: 'Oswald', sans-serif; margin-bottom: 15px; color: var(--steel-dark);">Core Competencies</h3>                 
+                    <div class="skills-container">                         
+                        <span class="skill-badge competency-badge">Project Management</span>                         
+                        <span class="skill-badge competency-badge">Site Supervision</span>                         
+                        <span class="skill-badge competency-badge">Team Leadership</span>                         
+                        <span class="skill-badge competency-badge">Quality Assurance</span>                         
+                        <span class="skill-badge competency-badge">Effective Communication</span>                     
+                    </div>                                                                        
+
+                    <!-- Languages -->
+                    <h3 style="font-family: 'Oswald', sans-serif; margin: 20px 0 15px; color: var(--steel-dark);">Languages</h3>                 
+                    <div class="skills-container">                         
+                        <span class="skill-badge language-badge" style="background: var(--card-bg); color: grey; border: 1px solid var(--concrete-dark);">English</span>                         
+                        <span class="skill-badge language-badge" style="background: var(--card-bg); color: grey; border: 1px solid var(--concrete-dark);">Bengali</span>                         
+                        <span class="skill-badge language-badge" style="background: var(--card-bg); color: grey; border: 1px solid var(--concrete-dark);">Hindi</span>                     
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- CONTACT / MESSAGE SECTION -->
+    <section id="contact" class="contact-section reveal">
+        <h2>
+            <i class="fas fa-envelope"></i>
+            GET IN TOUCH
+        </h2>
+
+        <div class="contact-wrapper">
+            <!-- Left Side -->
+            <div class="contact-info">
+                <span class="contact-tag">LET'S CONNECT</span>
+                <h3>Have a project in mind?</h3>
+                <p>
+                    Whether it's a collaboration, an exciting opportunity,
+                    a project idea, or simply a conversation about technology,
+                    I'd love to hear from you!
+                </p>
+
+                <div class="contact-details">
+                    <div class="contact-detail">
+                        <i class="fas fa-paper-plane"></i>
+                        <div>
+                            <h4>EMAIL</h4>
+                            <p>Drop me a message anytime.</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-detail">
+                        <i class="fas fa-code"></i>
+                        <div>
+                            <h4>COLLABORATION</h4>
+                            <p>Open to learning and building together.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-decoration">
+                    <i class="fas fa-drafting-compass"></i>
+                    <span>LET'S BUILD SOMETHING GREAT.</span>
+                </div>
+            </div>
+
+            <!-- Right Side: Message Form -->
+            <div class="contact-form-container">
+                <h3>
+                    <i class="fas fa-comment-dots"></i>
+                    SEND ME A MESSAGE
+                </h3>
+
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name">YOUR NAME</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">EMAIL ADDRESS</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">SUBJECT</label>
+                        <input type="text" id="subject" name="subject" placeholder="What's this about?" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">YOUR MESSAGE</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="send-btn">
+                        SEND MESSAGE
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 ANIRBAN AHAMED | BUILT WITH STRUCTURAL INTEGRITY</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Theme Toggle Logic
+        const toggleBtn = document.getElementById('themeToggle');
+        const icon = toggleBtn.querySelector('i');
+        
+        // Check local storage for saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger once on load
+
+        // Dynamic Navigation Active State Handler
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('header[id], section[id]');
+
+        function setActiveNav(selectedLink) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            if (selectedLink) {
+                selectedLink.classList.add('active');
+            }
+        }
+
+        // Handle Click Event
+        navLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                setActiveNav(this);
+            });
+        });
+
+        // Handle Active Nav State on Scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.getAttribute('id');
+                    const correspondingLink = document.querySelector(`.nav-link[href="#${activeId}"]`);
+                    setActiveNav(correspondingLink);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+    </script>
+</body>
+</html>
